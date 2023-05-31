@@ -23,12 +23,22 @@ public class WorkingDateController {
     public WorkingDateController(WorkingDateService workingDateService) {
         this.workingDateService = workingDateService;
     }
+/**
+ * Get the ending date
+ @param dateDTO the GetEndingDateDTO object containing the starting date and working days
+ @return the ResponseEntity with the GetEndingDateRespDTO object representing the ending date
 
+ * */
     @GetMapping("/ending-date")
     public ResponseEntity<GetEndingDateRespDTO> getEndingDate(@RequestBody GetEndingDateDTO dateDTO) {
         return new ResponseEntity<>(workingDateService.getEndingDate(dateDTO), HttpStatus.OK);
     }
-
+    /**
+     * Add a public holiday to the list of holidays.
+     *
+     * @param dto the PublicHolidayDTO object containing the public holiday date
+     * @return the ResponseEntity with the list of LocalDate representing the updated list of public holidays
+     */
     @PutMapping("/update-holidays")
     public ResponseEntity<List<LocalDate>> addPublicHoliday(@RequestBody PublicHolidayDTO dto){
         return new ResponseEntity<>(workingDateService.addPublicHoliday(dto), HttpStatus.OK);

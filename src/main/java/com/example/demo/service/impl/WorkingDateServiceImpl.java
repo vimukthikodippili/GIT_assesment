@@ -18,6 +18,12 @@ import java.util.List;
 @Service
 public class WorkingDateServiceImpl implements WorkingDateService {
     List<LocalDate> publicHolidays = new ArrayList<>();
+    /**
+     * Get the ending date based on the starting date and number of working days.
+     *
+     * @param dto the GetEndingDateDTO object containing the starting date and working days
+     * @return the GetEndingDateRespDTO object representing the ending date
+     */
 
     @Override
     public GetEndingDateRespDTO getEndingDate(GetEndingDateDTO dto) {
@@ -36,6 +42,12 @@ public class WorkingDateServiceImpl implements WorkingDateService {
             throw new JITBadRequestException("getting relevant Date failed.!!");
         }
     }
+    /**
+     * Add a public holiday to the list of holidays.
+     *
+     * @param dto the PublicHolidayDTO object containing the public holiday date
+     * @return the updated list of public holidays as a List of LocalDate
+     */
 
     @Override
     public List<LocalDate> addPublicHoliday(PublicHolidayDTO dto) {

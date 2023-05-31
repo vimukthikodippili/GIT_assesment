@@ -1,0 +1,18 @@
+server:
+  port:  8088
+  servlet:
+    context-path: /api/service/jit
+  error:
+    include-message: always
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DATABASE_USERNAME} #root
+    url: ${DATABASE_URL} #jdbc:mysql://localhost:3306/jit-service
+    password: ${DATABASE_PASSWORD} #root
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update} #update/none
+    show-sql: false
+    open-in-view: false
